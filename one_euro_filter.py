@@ -12,7 +12,7 @@ def exponential_smoothing(a, x, x_prev):
 
 def smoothing_factor(t_e, cutoff):
     r = 2 * math.pi * cutoff * t_e
-    return 1 / (r + 1)
+    return r / (r + 1)
 
 
 class OneEuroFilter:
