@@ -13,6 +13,7 @@ def smoothing_factor(t_e, cutoff):
 class OneEuroFilter:
     def __init__(self, t0, x0, dx0=0.0, min_cutoff=1.0, beta=0.0,
                  d_cutoff=1.0):
+        """Initialize the one euro filter."""
         # The parameters.
         self.min_cutoff = float(min_cutoff)
         self.beta = float(beta)
@@ -23,6 +24,7 @@ class OneEuroFilter:
         self.t_prev = float(t0)
 
     def __call__(self, t, x):
+        """Compute the filtered signal."""
         t_e = t - self.t_prev
 
         # The filtered derivative of the signal.
@@ -35,7 +37,7 @@ class OneEuroFilter:
         a = smoothing_factor(t_e, cutoff)
         x_hat = exponential_smoothing(a, x, self.x_prev)
 
-        # Memorize the values.
+        # Memorize the previous values.
         self.x_prev = x_hat
         self.dx_prev = dx_hat
         self.t_prev = t
