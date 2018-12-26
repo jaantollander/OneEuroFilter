@@ -1,13 +1,13 @@
 import math
 
 
-def exponential_smoothing(a, x, x_prev):
-    return a * x + (1 - a) * x_prev
-
-
 def smoothing_factor(t_e, cutoff):
     r = 2 * math.pi * cutoff * t_e
     return r / (r + 1)
+
+
+def exponential_smoothing(a, x, x_prev):
+    return a * x + (1 - a) * x_prev
 
 
 class OneEuroFilter:
