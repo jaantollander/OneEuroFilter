@@ -5,6 +5,9 @@ from matplotlib.animation import FuncAnimation
 
 from one_euro_filter import OneEuroFilter
 
+
+np.random.seed(1)
+
 # Parameters
 frames = 100
 start = 0
@@ -60,4 +63,4 @@ if __name__ == '__main__':
     anim = FuncAnimation(fig, update, frames=frames, interval=100)
     anim.save('one_euro_filter.gif', dpi=80, writer='imagemagick')
     # update(frames)
-    # plt.show()
+    plt.savefig("one_euro_filter.png", dpi=300)
