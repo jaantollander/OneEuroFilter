@@ -5,6 +5,10 @@ from matplotlib.animation import FuncAnimation
 
 from one_euro_filter import OneEuroFilter
 
+import os
+wk_dir = os.path.dirname(os.path.abspath(__file__))
+# print(save_dir)
+os.chdir(wk_dir)
 
 np.random.seed(1)
 
